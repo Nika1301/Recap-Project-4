@@ -1,7 +1,9 @@
+import "./Form.css";
 import React from "react";
 import { useState } from "react";
 export function Form({ onAddActivity }) {
   const [isWeatherGood, setIsWeatherGood] = useState(false);
+
   function handleSubmit(event) {
     console.log("HEY)");
     event.preventDefault();
@@ -16,16 +18,14 @@ export function Form({ onAddActivity }) {
   }
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h1> Weather in Hamburg</h1>
-
+      <h2> Add new activity:</h2>
       <label htmlFor="activity" className="activity">
-        Name:
+        Name:{" "}
+        <input id="activity" className="form__input" name="name" required />
       </label>
 
-      <input id="activity" className="form__input" name="name" required />
-
       <label className="weather">
-        Good Weather Activity
+        Good-weather activity:
         <input
           type="checkbox"
           name="isWeatherGood"
@@ -34,8 +34,7 @@ export function Form({ onAddActivity }) {
         />
       </label>
       <button className="submitButton" type="submit">
-        {" "}
-        Submit{" "}
+        Submit
       </button>
     </form>
   );

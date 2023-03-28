@@ -10,21 +10,35 @@ import List from "./components/List/List.js";
 const activitiesList = [
   {
     id: "1",
-    name: "Go for a walk",
-    isWeatherGood: "true",
+    name: "Reading",
+    isGoodWeather: "true",
   },
 ];
 
 function App() {
   const [activity, setActivity] = useState(activitiesList);
+  const isGoodWeather = true;
+  const checkedActivity = activity.filter(
+    (active) => active.isGoodWeather === isGoodWeather
+  );
+
   function handleAddActivity(newActivity) {
     console.log(handleAddActivity);
     setActivity([...activity, { ...newActivity, id: uid() }]);
   }
+
+  function handleDeleteActivity(activityDelete) {
+    setActivity(activity.filter((active) => active !== activityDelete));
+  }
   return (
     <div className="App">
       {" "}
-      <List activities={activity} />
+      <List
+        onDeleteActivity={handleDeleteActivity}
+        activities={activity}
+        activity={checkedActivity}
+        isGoodWeather={isGoodWeather}
+      />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );
