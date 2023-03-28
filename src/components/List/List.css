@@ -1,0 +1,28 @@
+.activity-list {
+  display: flex;
+
+  width: 40%;
+  margin: auto;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-list__item {
+  display: flex;
+  border-radius: 25px;
+  background-color: rgb(191, 183, 173);
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding: 0 0 0 1rem;
+  position: relative;
+}
+.activity-list__button {
+  font-style: italic;
+  border: none;
+  background-color: rgb(191, 183, 173);
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  font-size: large;
+}
